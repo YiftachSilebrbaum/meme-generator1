@@ -34,7 +34,7 @@ let gMeme = {
 function onInit(){
 
     // displayImages()
-     drawMeme()
+    revealGallery()
     console.log("text", gMeme.lines[0].txt)
     console.log("place" , gMeme.lines[0].selectedLineIdxY)
     console.log("color" , gMeme.lines[gSelectedLine].color)
@@ -51,17 +51,14 @@ function onImgSelect(selector){
 }
 function drawMeme() {
 
-    // gElCanvas = document.querySelector("my-canvas")
-    // gCtx = gElCanvas.getContext("2d")
-
     gCtx = document.getElementById("my-canvas").getContext("2d")
     const img = new Image()
     // img.src = 'img/1.jpg'
-  
     img.onload =  () => {gCtx.drawImage(img, 0, 0, 300, 300); 
         drawLines()}
     img.src = `img/${gMeme.selectedImgId}.jpg`
     getCurrentRow()
+
   }
 
 //   drawMeme('img/4.jpg')
@@ -102,12 +99,19 @@ function revealMeme(){
   }
 
 function addNewLine(){
+
     gMeme.lines.push(getNewLine())
+    if(gMeme.lines.length === 1) gSelectedLine = 0
     drawMeme()
 }
 
 function getCurrentRow(){
     let span = document.querySelector('span')
+
+    // if(gMeme.lines.length === 0)
+    // span.classList.add('display')
+
+    // if(gMeme.lines.length === 0) span.innerText = 1
      span.innerText = gSelectedLine + 1
 }
 
@@ -126,6 +130,13 @@ function addText(lineNum){
     // console.log("place" , gMeme.lines[lineNum].selectedLineIdxy)
     
   }
+
+function deleteCurrentLine(){
+    gMeme.lines.splice(gSelectedLine , 1)
+    gSelectedLine--
+    console.log(gMeme.lines)
+    drawMeme()
+}
 
 function moveLine(event){
 
@@ -190,8 +201,7 @@ function changeText(){
     let txt = document.getElementById('txt').value
     gMeme.lines[gSelectedLine].txt = ''
     gMeme.lines[gSelectedLine].txt = txt
-    console.log("text" , gMeme.lines[gSelectedLine].txt)
-   
+    
     drawMeme()
     // onInit()
 
@@ -237,4 +247,5 @@ function changeFont(value){
 
 }
 }
+
 
