@@ -8,6 +8,10 @@ body{
     
 }
 
+/* .main-layout{
+    display: grid;
+} */
+
 .controll-img{
     width:20px
 }
@@ -67,6 +71,9 @@ header {
 
 .main-controller{
     display: grid;
+    background-color:  aliceblue;
+    padding: 15px;
+    box-shadow: 2px 2px 2px gray;
 }
 
 .text-controller{
@@ -86,6 +93,7 @@ header {
     justify-content: center;
     margin: 5px;
     
+    
 }
 
 .controll-btn{
@@ -94,7 +102,7 @@ header {
    color: black;
    padding: 10px;
    text-align: center;
-   display: inline-block;
+   display: grid;
    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
    margin-top: 10px;
    margin-left: 10px;
@@ -103,6 +111,7 @@ header {
 }
 
 .nav-bt{
+    justify-content: center;
     background-color: lightgreen;
    border-radius: 4px;
    color: black;
@@ -135,22 +144,23 @@ label{
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
-.download{
+ .download{
+    display: block;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     text-decoration: none;
-    color: black;
-    margin-top: 20px;
+    color: black;   
+    padding-top: 30px;
 }
 
 .color-controller{
-    margin-top: 15px;
+    margin-top: 25px;
 }
 
 .current-row{
     font-size: 20px;
     margin: inherit;
     margin-right: 10px;
-    margin-top: 15px;
+    margin-top: 25px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
@@ -170,7 +180,11 @@ canvas{
 }
 
 .select-font{
-    margin-top:10px;
+    margin:20px;
+}
+
+.delete-line{
+    margin: 20px;
 }
 
 
